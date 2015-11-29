@@ -3,7 +3,7 @@
 
 	angular.module('App.core').config(['$stateProvider', '$urlRouterProvider',
 		function ($stateProvider, $urlRouterProvider) {
-			$urlRouterProvider.otherwise('/');
+			$urlRouterProvider.otherwise('/404');
 
 			$stateProvider
                 .state('app', {
@@ -25,6 +25,7 @@
                 })
                 // Not found route.
                 .state('app.notFound', {
+                    url : '/404',
                     templateUrl : 'errors/404.html'
                 })
                 // Home route
