@@ -1,10 +1,10 @@
 (function (angular, AppModule) {
-	'use strict';
+    'use strict';
 
-	var CoreModule = new AppModule(angular);
+    var CoreModule = new AppModule(angular);
 
     CoreModule.registerModule('App.core', [
-    	'ui.router',
+        'ui.router',
         'ui.router.util',
         'ui.bootstrap',
         'ngResource',
@@ -14,10 +14,10 @@
 
 
     // angular.module('App.core').run(['Menu',
-    // 	function (Menu) {
-    //     	Menu.addItem('Home', 'fa fa-home', '#/', 100);
-    //     	Menu.addItem('asd', 'fa fa-home', '#/asd', 99);
-    // 	}
+    //  function (Menu) {
+    //      Menu.addItem('Home', 'fa fa-home', '#/', 100);
+    //      Menu.addItem('asd', 'fa fa-home', '#/asd', 99);
+    //  }
     // ]);
 
     angular.module('App.core').constant('APISERVER', {
