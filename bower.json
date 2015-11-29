@@ -1,0 +1,24 @@
+{
+    "name": "app",
+    "version": "0.0.1",
+    "description": "Modularization for angularjs projects",
+    "authors": [
+        "Ivyhjk"
+    ],
+    "license": "MIT",
+    "homepage": "/",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "test",
+        "tests"
+    ],
+    "dependencies" : {
+        "bootstrap" : "*",
+        "angularjs" : "*",
+        "font-awesome" : "*",
+        "angular-ui-router" : "*",
+        "angular-bootstrap" : "*",
+        "angular-resource" : "*"
+    }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="App.core">
+    <head>
+        <title>Base application</title>
+
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <!-- Core CSS vendors -->
+        <link rel="stylesheet" type="text/css" href="./assets/vendors/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/vendors/font-awesome/css/font-awesome.min.css">
+        <!-- /Core CSS vendors -->
+
+        <!-- Template CSS -->
+        <!-- /Template CSS -->
+
+        <!-- Configuration scripts -->
+        <script type="text/javascript" src="./config/menubar.js"></script>
+        <!-- /Configuration scripts -->
+
+        <!-- Core scripts -->
+        <script type="text/javascript" src="./assets/vendors/angularjs/angular.js"></script>
+        <script type="text/javascript" src="./assets/vendors/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="./assets/vendors/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="./assets/vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <!-- /Core scripts -->
+    </head>
+    <body>
+        <div ui-view="layout"></div>
+
+        <!-- Application scripts -->
+        <script type="text/javascript" src="./assets/all.js"></script>
+        <!-- /Application scripts -->
+    </body>
+</html>
