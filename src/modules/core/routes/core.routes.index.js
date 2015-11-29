@@ -1,15 +1,15 @@
 (function (angular) {
-	'use strict';
+    'use strict';
 
-	angular.module('App.core').config(['$stateProvider', '$urlRouterProvider',
-		function ($stateProvider, $urlRouterProvider) {
-			$urlRouterProvider.otherwise('/404');
+    angular.module('App.core').config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.otherwise('/404');
 
-			$stateProvider
+            $stateProvider
                 .state('app', {
                     abstract: true,
                     views : {
-                    	// Global layout for views.
+                        // Global layout for views.
                         layout : {
                             templateUrl : 'layouts/default.html'
                         },
@@ -33,6 +33,6 @@
                     url : '/',
                     templateUrl : 'home/index.html'
                 });
-		}
-	]);
+        }
+    ]);
 })(angular);
