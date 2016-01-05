@@ -9,8 +9,8 @@
         $httpProvider.interceptors.push(function ($q, $injector) {
             return {
                 request: function(config) {
-                    // REST API requests
-                    if (config.headers.Accept.indexOf('application/json') != -1) {
+                    // REST API JSON requests
+                    if (config.headers.Accept.indexOf('application/json') != -1 && config.url.indexOf('.html') == -1) {
                         config.url = APISERVER.url + config.url;
                     }
 
