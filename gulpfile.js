@@ -7,9 +7,13 @@ var livereload = require('gulp-livereload');
 
 var dir = {
 	js : [
-		'./src/*.js', // Source level.
-		'./src/**/**/*.js', // Modules level.
-		'./src/**/**/**/*.js' // Modules folder (controllers, views, etc) level.
+		'./src/app.js', // Source level.
+		'./src/modules/**/module.js', // Modules level.
+		'./src/modules/**/config/*.js',
+		'./src/modules/**/factory/*.js',
+		'./src/modules/**/service/*.js',
+		'./src/modules/**/resource/*.js',
+		'./src/modules/**/controller/*.js',
 	],
 	css : [
 

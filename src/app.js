@@ -1,16 +1,16 @@
 (function (window, angular) {
-	'use strict';
+    'use strict';
 
     /**
-     * AppModule constructor.
+     * Module constructor.
      *
      * @param angular $angular Angularjs instance.
      *
      * @return self
      **/
-    var AppModule = function ($angular) {
+    var Module = function ($angular) {
         /**
-         * Contain all available paths for views. 
+         * Contain all available paths for views.
          *
          * @var Object
          **/
@@ -52,15 +52,15 @@
      *
      * @return self
      **/
-    AppModule.prototype.registerModule = function ($name, $requires, $config) {
+    Module.prototype.register = function ($name, $requires, $config) {
     	var _this = this;
 
     	_this.name = $name;
     	_this.realName = _this.name.replace(/(.*)\./g, '');
-    		
+
     	// Paths configurations.
-    	_this.paths.module = 'src/modules/' + _this.realName + '/';
-    	_this.paths.views = _this.paths.module + 'views/';
+    	_this.paths.module = 'src/modules/' + _this.realName.toLowerCase() + '/';
+    	_this.paths.views = _this.paths.module + 'view/';
     	// End paths configurations.
 
         // Register module.
@@ -73,7 +73,7 @@
 
 	            $stateProvider.state = function(name, definition) {
 	                if (typeof definition.templateUrl !== 'undefined') {
-                        if (typeof definition.processedByModule === 'undefined' || definition.processedByModule === false) {
+                        if (isNotProccessed(definition)) {
                             definition.templateUrl = _this.paths.views + definition.templateUrl;
                             definition.processedByModule = true;
                         } else {
@@ -88,7 +88,7 @@
 	                    var key = null;
 	                    var value = null;
 
-                        if (typeof definition.processedByModule === 'undefined' || definition.processedByModule === false) {
+                        if (isNotProccessed(definition)) {
                             definition.processedByModule = true;
                         } else {
                             baseStateProvider(name, definition);
@@ -99,7 +99,7 @@
 	                        value = definition.views[ key ];
 
 	                        if (typeof value.templateUrl !== 'undefined') {
-                                if (typeof value.processedByModule === 'undefined' || value.processedByModule === false) {
+                                if (isNotProccessed(value)) {
                                     value.templateUrl = _this.paths.views + value.templateUrl;
 
                                     setProcessedValues(value);
@@ -117,9 +117,14 @@
 	                return this;
 	            };
 
+                function isNotProccessed(definition)
+                {
+                    return typeof definition.processedByModule === 'undefined' || definition.processedByModule === false;
+                }
+
                 function setProcessedValues(value) {
                     value.processedByModule = true;
-                    
+
                     if (typeof value.access === 'undefined') {
                         value.access = {
                             auth : true
@@ -141,7 +146,7 @@
      *
      * @return self
      **/
-    AppModule.prototype.config = function ($configFn) {
+    Module.prototype.config = function ($configFn) {
     	var _this = this;
 
     	_this.angular.module(_this.name).config($configFn);
@@ -149,5 +154,5 @@
     	return _this;
     };
 
-    window.AppModule = AppModule;
+    window.Module = Module;
 })(window, angular);
