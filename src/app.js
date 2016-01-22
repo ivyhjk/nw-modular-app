@@ -14,7 +14,7 @@
          *
          * @var Object
          **/
-    	this.paths = {
+        this.paths = {
             "module" : null,
             "views" : null
         };
@@ -24,23 +24,23 @@
          *
          * @var string
          **/
-    	this.name = null;
+        this.name = null;
 
         /**
          * Module real name, or short name.
          *
          * @var string
          **/
-    	this.realName = null;
+        this.realName = null;
 
         /**
          * Angularjs instance.
          *
          * @var angular
          **/
-    	this.angular = $angular;
+        this.angular = $angular;
 
-    	return this;
+        return this;
     };
 
     /**
@@ -53,26 +53,26 @@
      * @return self
      **/
     Module.prototype.register = function ($name, $requires, $config) {
-    	var _this = this;
+        var _this = this;
 
-    	_this.name = $name;
-    	_this.realName = _this.name.replace(/(.*)\./g, '');
+        _this.name = $name;
+        _this.realName = _this.name.replace(/(.*)\./g, '');
 
-    	// Paths configurations.
-    	_this.paths.module = 'src/modules/' + _this.realName.toLowerCase() + '/';
-    	_this.paths.views = _this.paths.module + 'view/';
-    	// End paths configurations.
+        // Paths configurations.
+        _this.paths.module = 'src/modules/' + _this.realName.toLowerCase() + '/';
+        _this.paths.views = _this.paths.module + 'view/';
+        // End paths configurations.
 
         // Register module.
-    	_this.angular.module(_this.name, $requires, $config);
+        _this.angular.module(_this.name, $requires, $config);
 
         // Configure $stateProvider for views.
-    	_this.config(['$stateProvider',
-    		function ($stateProvider) {
-	            var baseStateProvider = $stateProvider.state;
+        _this.config(['$stateProvider',
+            function ($stateProvider) {
+                var baseStateProvider = $stateProvider.state;
 
-	            $stateProvider.state = function(name, definition) {
-	                if (typeof definition.templateUrl !== 'undefined') {
+                $stateProvider.state = function(name, definition) {
+                    if (typeof definition.templateUrl !== 'undefined') {
                         if (isNotProccessed(definition)) {
                             definition.templateUrl = _this.paths.views + definition.templateUrl;
                             definition.processedByModule = true;
@@ -82,11 +82,11 @@
 
                             return this;
                         }
-	                }
+                    }
 
-	                if (typeof definition.views !== 'undefined') {
-	                    var key = null;
-	                    var value = null;
+                    if (typeof definition.views !== 'undefined') {
+                        var key = null;
+                        var value = null;
 
                         if (isNotProccessed(definition)) {
                             definition.processedByModule = true;
@@ -95,10 +95,10 @@
                             return this;
                         }
 
-	                    for (key in definition.views) {
-	                        value = definition.views[ key ];
+                        for (key in definition.views) {
+                            value = definition.views[ key ];
 
-	                        if (typeof value.templateUrl !== 'undefined') {
+                            if (typeof value.templateUrl !== 'undefined') {
                                 if (isNotProccessed(value)) {
                                     value.templateUrl = _this.paths.views + value.templateUrl;
 
@@ -106,16 +106,16 @@
                                 } else {
                                     continue;
                                 }
-	                        }
-	                    }
-	                } else {
+                            }
+                        }
+                    } else {
                         setProcessedValues(definition);
                     }
 
-	                baseStateProvider(name, definition);
+                    baseStateProvider(name, definition);
 
-	                return this;
-	            };
+                    return this;
+                };
 
                 function isNotProccessed(definition)
                 {
@@ -133,10 +133,10 @@
 
                     return value;
                 }
-    		}
-    	]);
+            }
+        ]);
 
-    	return _this;
+        return _this;
     };
 
     /**
@@ -147,11 +147,11 @@
      * @return self
      **/
     Module.prototype.config = function ($configFn) {
-    	var _this = this;
+        var _this = this;
 
-    	_this.angular.module(_this.name).config($configFn);
+        _this.angular.module(_this.name).config($configFn);
 
-    	return _this;
+        return _this;
     };
 
     window.Module = Module;
