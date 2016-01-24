@@ -22,23 +22,23 @@
         var vm = this;
 
         vm.auth = {
-        	username : null,
-        	password : null,
-	        remember : false
+            username : null,
+            password : null,
+            remember : false
         };
 
         vm.do = function () {
             if ( ! vm.auth.username) {
-        		alert('A username is required');
-        		focus('#LoginUsername');
-        		return false;
-        	}
+                alert('A username is required');
+                focus('#LoginUsername');
+                return false;
+            }
 
-        	if ( ! vm.auth.password) {
-        		alert('A password is required');
-        		focus('#LoginPassword');
-        		return false;
-        	}
+            if ( ! vm.auth.password) {
+                alert('A password is required');
+                focus('#LoginPassword');
+                return false;
+            }
 
             OAuth2.login(vm.auth, function (error) {
                 vm.auth.password = null;
@@ -58,8 +58,8 @@
          * @return void
          **/
         function focus($selector) {
-        	var element = document.querySelector($selector);
-        	angular.element(element)[0].focus();
+            var element = document.querySelector($selector);
+            angular.element(element)[0].focus();
         }
     }
 })(angular);

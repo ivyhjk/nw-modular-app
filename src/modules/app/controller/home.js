@@ -4,13 +4,15 @@
     var module = 'App.Controller.HomeController';
 
     angular
-        .module(module, [])
+        .module(module, [
+            'ngResource'
+        ])
         .controller(module, HomeController)
     ;
 
     HomeController.$inject = [];
 
     function HomeController() {
-        
+
     }
 })(angular);

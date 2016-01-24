@@ -6,6 +6,6 @@
     Token.$inject = ['$httpProvider'];
 
     function Token($httpProvider) {
-        $httpProvider.interceptors.push('App.OAuth2.Factory.TokenInterceptor');
+        $httpProvider.interceptors.push('App.OAuth2.Factory.Interceptor.Token');
     }
 })(angular);

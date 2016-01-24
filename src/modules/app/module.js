@@ -6,7 +6,10 @@
     module.register('App', [
         'ui.router',
 
+        'App.Factory.Interceptor.Request',
+        'App.Factory.Interceptor.Response',
         'App.Controller.HomeController',
+
         'App.OAuth2',
     ]);
 })(angular, Module);
