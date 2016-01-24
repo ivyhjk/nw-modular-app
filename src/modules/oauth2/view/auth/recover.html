@@ -1,0 +1,24 @@
+<div class="panel panel-sign" ng-controller='App.OAuth2.Controller.RecorverController as Recover'>
+	<div class="panel-title-sign mt-xl text-right">
+		<h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Recuparar Clave</h2>
+	</div>
+	<div class="panel-body">
+		<div class="alert alert-info">
+			<p class="m-none text-weight-semibold h6">Ingrese su correo electrónico y le enviaremos las instrucciones.</p>
+		</div>
+
+		<form ng-submit='Recover.submit()'>
+			<div class="form-group mb-none">
+				<div class="input-group">
+					<input type="email" placeholder="E-mail.." class="form-control input-lg" ng-model="Recover.form.email" />
+					<span class="input-group-btn">
+						<button class="btn btn-primary btn-lg" type="submit">Recupear</button>
+					</span>
+				</div>
+			</div>
+
+			<p class="text-center mt-lg">
+				¿Ya la recordó? <a ui-sref='auth.login'>Ingresar!</a>
+		</form>
+	</div>
+</div>

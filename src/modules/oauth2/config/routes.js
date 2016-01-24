@@ -29,6 +29,20 @@
                 url : '/auth/logout',
                 controller : 'App.OAuth2.Controller.LogoutController',
             })
+            .state('auth.recover', {
+                url : '/auth/recover',
+                templateUrl : 'auth/recover.html',
+                access : {
+                    auth : false
+                }
+            })
+            .state('auth.signup', {
+                url : '/auth/signup',
+                templateUrl : 'auth/signup.html',
+                access : {
+                    auth : false
+                }
+            })
         ;
     }
 })(angular);

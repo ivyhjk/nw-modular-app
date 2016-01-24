@@ -1,0 +1,69 @@
+<div class="center-sign" ng-controller='App.OAuth2.Controller.SignUpController as SignUp'>
+	<div class="logo pull-left">
+		<img ng-src="assets/images/logo.png" height="54" alt="Porto Admin" />
+	</div>
+
+	<div class="panel panel-sign">
+		<div class="panel-title-sign mt-xl text-right">
+			<h2 class="title text-uppercase text-weight-bold m-none">
+				<i class="fa fa-user-plus mr-xs"></i> Registro
+			</h2>
+		</div>
+		<div class="panel-body">
+			<form ng-submit="SignUp.submit()">
+				<div class="form-group mb-lg">
+					<label for="SignUpUsername">Usuario</label>
+					<input id="SignUpUsername" type="text" class="form-control input-lg" ng-model='SignUp.form.username' />
+				</div>
+
+				<div class="form-group mb-lg">
+					<label for="SignUpEmail">Correo electrónico</label>
+					<input id="SignUpEmail" type="email" class="form-control input-lg" ng-model='SignUp.form.email' />
+				</div>
+
+				<div class="form-group mb-none">
+					<div class="row">
+						<div class="col-sm-6 mb-lg">
+							<label id="SignUpPassword">Clave</label>
+							<input id="SignUpPassword" type="password" class="form-control input-lg" ng-model='SignUp.form.password' />
+						</div>
+						<div class="col-sm-6 mb-lg">
+							<label for="SignUpPasswordConfirm">Confirmación clave</label>
+							<input id="SignUpPasswordConfirm" type="password" class="form-control input-lg" ng-model='SignUp.form.password_confirm' />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="checkbox-custom checkbox-default">
+							<input id="SignUpAgreeTerms" name="agreeterms" type="checkbox"/>
+							<label for="SignUpAgreeTerms">
+								Estoy de acuerdo con los <br><a href="">terminos de uso</a>
+							</label>
+						</div>
+					</div>
+					<div class="col-sm-4 text-right">
+						<button type="submit" class="btn btn-primary hidden-xs">Ingresar</button>
+						<button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Ingresar</button>
+					</div>
+				</div>
+
+				<span class="mt-lg mb-lg line-thru text-center text-uppercase">
+					<span>o</span>
+				</span>
+
+				<div class="mb-xs text-center">
+					<a class="btn btn-facebook mb-md ml-xs mr-xs">Connect with <i class="fa fa-facebook"></i></a>
+					<a class="btn btn-twitter mb-md ml-xs mr-xs">Connect with <i class="fa fa-twitter"></i></a>
+				</div>
+
+				<p class="text-center">
+					¿Ya tienes una cuenta? <a ui-sref='auth.login'>Ingresar!</a>
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<p class="text-center text-muted mt-md mb-md">&copy; Copyright 2014. All Rights Reserved.</p>
+</div>
